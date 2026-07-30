@@ -1,0 +1,51 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Composer local/cache artifacts
+/.composer/
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# IDE/editor files
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and runtime files
+/logs/*
+!/logs/.gitkeep
+*.log
+
+# PHP/cache/temp files
+/.phpunit.result.cache
+/cache/
+/tmp/
+/temp/
+
+# User uploaded files generated at runtime
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Local database dumps/backups, except the prepared import file
+/database/*.dump
+/database/*.backup
+/database/*.bak
+/database/*.zip
+
+# Build/export archives
+*.zip
+*.rar
+*.7z
+
+# Keep GitHub clean from local XAMPP/Windows artifacts
+*.lnk

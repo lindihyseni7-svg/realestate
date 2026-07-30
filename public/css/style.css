@@ -1,0 +1,10 @@
+.navbar{
+    display: flex;
+    color: red;
+}
+p{
+    color: red;
+}
+h1{
+    font-size: 10px;
+}

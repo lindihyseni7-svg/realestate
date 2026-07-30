@@ -1,0 +1,64 @@
+{% extends "layout/appLayout.html" %}
+
+{% block title %}Create Listing{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Add Listing</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-2">Add Listing</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="post" action="/realestate/public/listings-store" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="small mb-1">Address :</label>
+                                <input class="form-control py-4" name="address" type="text" placeholder="Enter address"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Price :</label>
+                                <input class="form-control py-4" name="price" type="text" placeholder="Enter price"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Bedrooms :</label>
+                                <input class="form-control py-4" name="bedrooms" type="number" placeholder="Enter number of bedrooms"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Bathrooms :</label>
+                                <input class="form-control py-4" name="bathrooms" type="number" placeholder="Enter number of bathrooms"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Description :</label>
+                                <textarea class="form-control py-4" name="description" placeholder="Enter description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="agent">Agent</label>
+                                <select class="form-control" name="agent_id" id="agent" required>
+                                    <option value="">Select agent</option>
+                                    {% for agent in agents %}
+                                    <option value="{{ agent.id }}">{{ agent.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="property_type">Property Type</label>
+                                <select class="form-control" name="type_id" id="property_type" required>
+                                    <option value="">Select property type</option>
+                                    {% for property_type in property_types %}
+                                    <option value="{{ property_type.id }}">{{ property_type.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <input class="btn btn-primary" value="Create Listing" type="submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

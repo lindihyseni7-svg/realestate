@@ -1,0 +1,46 @@
+{% extends "layout/appLayout.html" %}
+
+{% block title %}Edit Agent{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Edit Agent</h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-2">Edit Agent</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <form method="post" action="/realestate/public/agents-update">
+                            <input type="hidden" name="id" value="{{ agent.id }}">
+                            <div class="form-group">
+                                <label class="small mb-1">Name :</label>
+                                <input class="form-control py-4" name="name" type="text" value="{{ agent.name }}" placeholder="Enter name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Email :</label>
+                                <input class="form-control py-4" name="email" type="email" value="{{ agent.email }}" placeholder="Enter email" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Phone :</label>
+                                <input class="form-control py-4" name="phone" type="text" value="{{ agent.phone }}" placeholder="Enter phone"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Agency :</label>
+                                <input class="form-control py-4" name="agency" type="text" value="{{ agent.agency }}" placeholder="Enter agency"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1">Bio :</label>
+                                <textarea class="form-control py-4" name="bio" placeholder="Enter bio">{{ agent.bio }}</textarea>
+                            </div>
+                            <input class="btn btn-primary" value="Edit Agent" type="submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock %}
