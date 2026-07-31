@@ -1,0 +1,11 @@
+Options -MultiViews
+RewriteEngine On
+
+# Serve existing assets and folders directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Send clean URLs to the MVC router through the query string.
+RewriteRule ^(.+)$ index.php?$1 [L,QSA]
+RewriteRule ^$ index.php [L]

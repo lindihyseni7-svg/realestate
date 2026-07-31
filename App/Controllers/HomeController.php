@@ -61,12 +61,12 @@ class HomeController extends Controller
                 'budget' => $budget,
             ],
             'property_images' => [
-                '/realestate/public/images/card1.jpg',
-                '/realestate/public/images/card2.jpg',
-                '/realestate/public/images/card3.jpg',
-                '/realestate/public/images/section1.jpg',
-                '/realestate/public/images/section5.jpg',
-                '/realestate/public/images/bigsection.jpg',
+                'images/card1.jpg',
+                'images/card2.jpg',
+                'images/card3.jpg',
+                'images/section1.jpg',
+                'images/section5.jpg',
+                'images/bigsection.jpg',
             ],
         ]);
     }

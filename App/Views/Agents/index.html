@@ -37,9 +37,9 @@
                             <td>{{ agent.bio }}</td>
                             <td>{{ agent.created_at }}</td>
                             <td>{{ agent.updated_at }}</td>
-                            <td><a href="/realestate/public/agents-edit?id={{agent.id}}">Edit</a></td>
+                            <td><a href="{{ url('agents-edit') }}?id={{agent.id}}">Edit</a></td>
                             <td>
-                                <form method="post" action="/realestate/public/agents-delete" onsubmit="return confirmSubmit();">
+                                <form method="post" action="{{ url('agents-delete') }}" onsubmit="return confirmSubmit();">
                                     <input type="hidden" name="id" value="{{ agent.id }}">
                                     <input type="submit" value="Delete">
                                 </form>

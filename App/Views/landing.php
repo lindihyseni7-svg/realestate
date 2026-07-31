@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="/realestate/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/realestate/public/style/landing-modern.css">
+    <link rel="stylesheet" href="{{ asset('style/landing-modern.css') }}">
 </head>
 <body>
 <nav class="site-nav navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand brand-mark" href="/realestate/public/">
+        <a class="navbar-brand brand-mark" href="{{ url('') }}">
             <span class="brand-icon"><i class="fa-solid fa-house-chimney"></i></span>
             Real Estate
         </a>
@@ -24,16 +24,16 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="/realestate/public/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/realestate/public/buy#featured">Buy</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('buy') }}#featured">Buy</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#agents">Agents</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 {% if is_logged_in %}
-                <li class="nav-item"><a class="nav-link" href="/realestate/public/listings">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="/realestate/public/logout">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('listings') }}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>
                 {% else %}
-                <li class="nav-item"><a class="nav-link" href="/realestate/public/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Login</a></li>
                 {% endif %}
                 <li class="nav-item ms-lg-3">
                     <a class="btn btn-nav" href="#contact">Book a tour</a>
@@ -75,7 +75,7 @@
             </div>
             <div class="col-lg-6 reveal reveal-delay">
                 <div class="hero-card">
-                    <img src="/realestate/public/images/hero1.jpg" alt="Modern property interior">
+                    <img src="{{ asset('images/hero1.jpg') }}" alt="Modern property interior">
                     <div class="floating-card floating-card-top">
                         <i class="fa-solid fa-chart-line"></i>
                         <div>
@@ -98,7 +98,7 @@
 
 <section class="search-panel-section">
     <div class="container">
-        <form class="search-panel reveal" method="get" action="/realestate/public/buy#featured">
+        <form class="search-panel reveal" method="get" action="{{ url('buy') }}#featured">
             <div class="search-field">
                 <label>Location</label>
                 <input type="text" name="location" value="{{ search.location|default('') }}" placeholder="Prishtine, Peje, Prizren">
@@ -139,7 +139,7 @@
             {% set image = property_images[loop.index0 % property_images|length] %}
             <article class="property-card reveal">
                 <div class="property-image">
-                    <img src="{{ image }}" alt="{{ listing.address }}">
+                    <img src="{{ asset(image) }}" alt="{{ listing.address }}">
                     <span class="badge-soft">{{ listing.propertyType.name|default('Property') }}</span>
                 </div>
                 <div class="property-body">
@@ -163,7 +163,7 @@
             <i class="fa-solid fa-house-circle-exclamation"></i>
             <h3>No listings yet</h3>
             <p>No property matched this search. Try another location, type or budget.</p>
-            <a class="btn btn-primary-modern" href="/realestate/public/login">Open dashboard</a>
+            <a class="btn btn-primary-modern" href="{{ url('login') }}">Open dashboard</a>
         </div>
         {% endif %}
     </div>
@@ -199,7 +199,7 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 reveal">
-                <img class="split-image" src="/realestate/public/images/section1.jpg" alt="Beautiful living space">
+                <img class="split-image" src="{{ asset('images/section1.jpg') }}" alt="Beautiful living space">
             </div>
             <div class="col-lg-6 reveal reveal-delay">
                 <span class="eyebrow">Designed for trust</span>
@@ -210,7 +210,7 @@
                     <li><i class="fa-solid fa-check"></i> Clear price and property specifications</li>
                     <li><i class="fa-solid fa-check"></i> Fast admin CRUD for future updates</li>
                 </ul>
-                <a class="btn btn-primary-modern" href="/realestate/public/buy#featured">See properties</a>
+                <a class="btn btn-primary-modern" href="{{ url('buy') }}#featured">See properties</a>
             </div>
         </div>
     </div>
@@ -250,22 +250,22 @@
         </div>
         <div class="agent-grid">
             <div class="agent-card reveal">
-                <img src="/realestate/public/images/team-1.jpg" alt="Agent">
+                <img src="{{ asset('images/team-1.jpg') }}" alt="Agent">
                 <h3>Arben Krasniqi</h3>
                 <p>Residential advisor</p>
             </div>
             <div class="agent-card reveal">
-                <img src="/realestate/public/images/team-2.jpg" alt="Agent">
+                <img src="{{ asset('images/team-2.jpg') }}" alt="Agent">
                 <h3>Elira Berisha</h3>
                 <p>Rental specialist</p>
             </div>
             <div class="agent-card reveal">
-                <img src="/realestate/public/images/team-3.jpg" alt="Agent">
+                <img src="{{ asset('images/team-3.jpg') }}" alt="Agent">
                 <h3>Jon Gashi</h3>
                 <p>Commercial spaces</p>
             </div>
             <div class="agent-card reveal">
-                <img src="/realestate/public/images/team-4.jpg" alt="Agent">
+                <img src="{{ asset('images/team-4.jpg') }}" alt="Agent">
                 <h3>Nora Hoxha</h3>
                 <p>Investment consultant</p>
             </div>
@@ -287,7 +287,7 @@
                 </div>
             </div>
             <div class="col-lg-7 reveal reveal-delay">
-                <form class="contact-card" method="post" action="/realestate/public/contact-store">
+                <form class="contact-card" method="post" action="{{ url('contact-store') }}">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="first_name">First name</label>
@@ -321,7 +321,7 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-4">
-                <a class="brand-mark footer-brand" href="/realestate/public/">
+                <a class="brand-mark footer-brand" href="{{ url('') }}">
                     <span class="brand-icon"><i class="fa-solid fa-house-chimney"></i></span>
                     Real Estate
                 </a>
@@ -336,11 +336,11 @@
             <div class="col-lg-2 col-md-4">
                 <h4>Dashboard</h4>
                 {% if is_logged_in %}
-                <a href="/realestate/public/listings">Listings</a>
-                <a href="/realestate/public/agents">Agents</a>
-                <a href="/realestate/public/users">Users</a>
+                <a href="{{ url('listings') }}">Listings</a>
+                <a href="{{ url('agents') }}">Agents</a>
+                <a href="{{ url('users') }}">Users</a>
                 {% else %}
-                <a href="/realestate/public/login">Admin login</a>
+                <a href="{{ url('login') }}">Admin login</a>
                 <a href="#contact">Request access</a>
                 {% endif %}
             </div>

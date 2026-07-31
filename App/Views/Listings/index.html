@@ -11,7 +11,7 @@
                 <h1>Listings Control Center</h1>
                 <p>Manage your properties, search listings quickly and keep the public landing page fresh.</p>
             </div>
-            <a class="btn btn-light btn-lg" href="/realestate/public/listings-create">+ Add Listing</a>
+            <a class="btn btn-light btn-lg" href="{{ url('listings-create') }}">+ Add Listing</a>
         </div>
 
         <div class="row dashboard-stats mb-4">
@@ -41,11 +41,11 @@
             </div>
         </div>
 
-        <form class="admin-search mb-4" method="get" action="/realestate/public/listings">
+        <form class="admin-search mb-4" method="get" action="{{ url('listings') }}">
             <input name="q" value="{{ q }}" type="text" placeholder="Search by address, description, agent or property type...">
             <button type="submit">Search</button>
             {% if q != '' %}
-            <a href="/realestate/public/listings">Clear</a>
+            <a href="{{ url('listings') }}">Clear</a>
             {% endif %}
         </form>
 
@@ -80,8 +80,8 @@
                             <td>{{ listing.propertyType.name }}</td>
                             <td>{{ listing.created_at }}</td>
                             <td>{{ listing.updated_at }}</td>
-                            <td><a href="/realestate/public/listings-edit?id={{listing.id}}">Edit</a></td>
-                        <td><form method='post' action='/realestate/public/listings-delete' onsubmit="return confirmSubmit();">
+                            <td><a href="{{ url('listings-edit') }}?id={{listing.id}}">Edit</a></td>
+                        <td><form method='post' action='{{ url('listings-delete') }}' onsubmit="return confirmSubmit();">
                             <input type='hidden' name='id'value='{{listing.id}}'>
                             <input type='submit' value='Delete'>
                         </form></td>

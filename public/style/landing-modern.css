@@ -608,7 +608,7 @@ img {
     color: #fff;
     background:
         linear-gradient(135deg, rgba(24, 32, 42, 0.92), rgba(15, 118, 110, 0.84)),
-        url("/realestate/public/images/contact.jpg") center/cover;
+        url("../images/contact.jpg") center/cover;
 }
 
 .contact-section-modern p,

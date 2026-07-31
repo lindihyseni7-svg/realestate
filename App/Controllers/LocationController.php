@@ -14,7 +14,7 @@ class LocationController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -37,7 +37,7 @@ class LocationController extends Controller
         $location->name = $_POST['name'];
         $location->type = $_POST['type'];
         $location->save();
-        header("Location: /realestate/public/locations");
+        header('Location: ' . \Core\View::url('locations'));
         exit;
     }
 
@@ -56,7 +56,7 @@ class LocationController extends Controller
         $location->name = $_POST['name'];
         $location->type = $_POST['type'];
         $location->save();
-        header("Location: /realestate/public/locations");
+        header('Location: ' . \Core\View::url('locations'));
         exit;
     }
 
@@ -65,7 +65,7 @@ class LocationController extends Controller
         $id = $_POST['id'];
         $location = Location::findOrFail($id);
         $location->delete();
-        header("Location: /realestate/public/locations");
+        header('Location: ' . \Core\View::url('locations'));
         exit;
     }
 }

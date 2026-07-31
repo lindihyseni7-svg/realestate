@@ -138,15 +138,66 @@ After cloning the project, install PHP dependencies with:
 composer install
 ```
 
-## Deployment Note
+## InfinityFree / Shared Hosting Deployment
 
-This project is currently a PHP + MySQL application designed for Apache/XAMPP-style hosting. Vercel does not run traditional PHP/MySQL apps directly like XAMPP.
+This project is prepared for shared PHP hosting where the domain points to
+`htdocs`. The live shared-hosting entry point is `standalone.php`, which uses
+plain PDO/MySQL and does not require Composer/vendor packages on the server.
 
-For live deployment, use one of these options:
+1. Create a MySQL database from the InfinityFree dashboard.
+2. Open phpMyAdmin for that database and import:
 
-- PHP/MySQL hosting such as cPanel hosting, InfinityFree, 000webhost-style hosting, Hostinger, etc.
-- A VPS with Apache/Nginx, PHP and MySQL.
-- Refactor later into a separate frontend and backend if you specifically want Vercel.
+   ```text
+   database/infinityfree_import.sql
+   ```
+
+3. Copy this file:
+
+   ```text
+   App/database.sample.php
+   ```
+
+   to:
+
+   ```text
+   App/database.php
+   ```
+
+   Then fill in the InfinityFree host, database name, username and password.
+   `App/database.php` is ignored by Git because it contains private credentials.
+
+4. Upload the deploy files into the domain `htdocs`:
+
+   ```text
+   index.php
+   standalone.php
+   .htaccess
+   App/database.php
+   public/
+   ```
+
+   You can upload the full project too, but `vendor/` is not required for the
+   live standalone version.
+
+5. Open the website root:
+
+   ```text
+   https://your-domain/
+   ```
+
+The root `index.php` and `.htaccess` forward clean URLs to the standalone app,
+so the site works as `/`, `/buy`, `/login`, `/dashboard`, `/listings`,
+`/agents`, `/contacts`, etc. Locally you can also use:
+
+```text
+http://localhost/realestate/
+```
+
+instead of only:
+
+```text
+http://localhost/realestate/public/
+```
 
 ## MVC Diagram
 

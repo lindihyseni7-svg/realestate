@@ -14,7 +14,7 @@ class UserController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
         $user->email = $_POST['email'];
         $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $user->save();
-        header('Location: /realestate/public/users');
+        header('Location: ' . \Core\View::url('users'));
         exit;
     }
 
@@ -66,7 +66,7 @@ class UserController extends Controller
             $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         }
         $user->save();
-        header('Location: /realestate/public/users');
+        header('Location: ' . \Core\View::url('users'));
         exit;
     }
 
@@ -75,7 +75,7 @@ class UserController extends Controller
         $id = $_POST['id'];
         $user = User::findOrFail($id);
         $user->delete();
-        header('Location: /realestate/public/users');
+        header('Location: ' . \Core\View::url('users'));
         exit;
     }
 }

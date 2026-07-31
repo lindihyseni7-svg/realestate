@@ -33,11 +33,11 @@
                             <td>{{ user.country }}</td>
                             <td>{{ user.city }}</td>
                             <td>{{ user.address }}</td>
-                            <td> <form method='post' action='/realestate/public/users-edit'>
+                            <td> <form method='post' action='{{ url('users-edit') }}'>
                             <input type='hidden' name='id' value='{{user.id}}'>
                             <input type='submit' value='Edit'>
                         </form></td>
-                        <td><form method='post' action='/realestate/public/users-delete'>
+                        <td><form method='post' action='{{ url('users-delete') }}'>
                             <input type='hidden' name='id'value='{{user.id}}'>
                             <input type='submit' value='Delete'>
                         </form></td>

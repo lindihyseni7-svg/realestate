@@ -15,7 +15,7 @@ class AgentController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -41,7 +41,7 @@ class AgentController extends Controller
         $agent->agency = $_POST['agency'];
         $agent->bio = $_POST['bio'];
         $agent->save();
-        header("Location: /realestate/public/agents");
+        header('Location: ' . \Core\View::url('agents'));
         exit;
     }
 
@@ -63,7 +63,7 @@ class AgentController extends Controller
         $agent->agency = $_POST['agency'];
         $agent->bio = $_POST['bio'];
         $agent->save();
-        header("Location: /realestate/public/agents");
+        header('Location: ' . \Core\View::url('agents'));
         exit;
     }
 
@@ -72,7 +72,7 @@ class AgentController extends Controller
         $id = $_POST['id'];
         $agent = Agent::findOrFail($id);
         $agent->delete();
-        header("Location: /realestate/public/agents");
+        header('Location: ' . \Core\View::url('agents'));
         exit;
     }
 }

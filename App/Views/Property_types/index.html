@@ -29,9 +29,9 @@
                             <td>{{ property_type.name }}</td>
                             <td>{{ property_type.created_at }}</td>
                             <td>{{ property_type.updated_at }}</td>
-                            <td><a href="/realestate/public/property_types-edit?id={{property_type.id}}">Edit</a></td>
+                            <td><a href="{{ url('property_types-edit') }}?id={{property_type.id}}">Edit</a></td>
                             <td>
-                                <form method="post" action="/realestate/public/property_types-delete" onsubmit="return confirmSubmit();">
+                                <form method="post" action="{{ url('property_types-delete') }}" onsubmit="return confirmSubmit();">
                                     <input type="hidden" name="id" value="{{ property_type.id }}">
                                     <input type="submit" value="Delete">
                                 </form>

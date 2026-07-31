@@ -29,9 +29,9 @@
                             <td>{{ amenity.name }}</td>
                             <td>{{ amenity.created_at }}</td>
                             <td>{{ amenity.updated_at }}</td>
-                            <td><a href="/realestate/public/amenities-edit?id={{ amenity.id }}">Edit</a></td>
+                            <td><a href="{{ url('amenities-edit') }}?id={{ amenity.id }}">Edit</a></td>
                             <td>
-                                <form method="post" action="/realestate/public/amenities-delete" onsubmit="return confirmSubmit();">
+                                <form method="post" action="{{ url('amenities-delete') }}" onsubmit="return confirmSubmit();">
                                     <input type="hidden" name="id" value="{{ amenity.id }}">
                                     <input type="submit" value="Delete">
                                 </form>

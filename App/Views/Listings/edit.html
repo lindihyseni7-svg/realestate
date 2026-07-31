@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="/realestate/public/listings-update" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('listings-update') }}" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="{{ listing.id }}">
                             <div class="form-group">
                                 <label class="small mb-1">Address :</label>

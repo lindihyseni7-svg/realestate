@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="/realestate/public/listings-store" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('listings-store') }}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="small mb-1">Address :</label>
                                 <input class="form-control py-4" name="address" type="text" placeholder="Enter address"/>

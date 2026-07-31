@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="/realestate/public/property_types-update">
+                        <form method="post" action="{{ url('property_types-update') }}">
                             <input type="hidden" name="id" value="{{ property_type.id }}">
                             <div class="form-group">
                                 <label class="small mb-1">Name :</label>

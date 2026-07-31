@@ -14,7 +14,7 @@ class AmenityController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -36,7 +36,7 @@ class AmenityController extends Controller
         $amenity = new Amenity();
         $amenity->name = $_POST['name'];
         $amenity->save();
-        header("Location: /realestate/public/amenities");
+        header('Location: ' . \Core\View::url('amenities'));
         exit;
     }
 
@@ -54,7 +54,7 @@ class AmenityController extends Controller
         $amenity = Amenity::findOrFail($id);
         $amenity->name = $_POST['name'];
         $amenity->save();
-        header("Location: /realestate/public/amenities");
+        header('Location: ' . \Core\View::url('amenities'));
         exit;
     }
 
@@ -63,7 +63,7 @@ class AmenityController extends Controller
         $id = $_POST['id'];
         $amenity = Amenity::findOrFail($id);
         $amenity->delete();
-        header("Location: /realestate/public/amenities");
+        header('Location: ' . \Core\View::url('amenities'));
         exit;
     }
 }

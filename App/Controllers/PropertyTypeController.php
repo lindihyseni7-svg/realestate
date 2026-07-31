@@ -14,7 +14,7 @@ class PropertyTypeController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -36,7 +36,7 @@ class PropertyTypeController extends Controller
         $propertyType = new PropertyType();
         $propertyType->name = $_POST['name'];
         $propertyType->save();
-        header("Location: /realestate/public/property_types");
+        header('Location: ' . \Core\View::url('property_types'));
         exit;
     }
 
@@ -54,7 +54,7 @@ class PropertyTypeController extends Controller
         $propertyType = PropertyType::findOrFail($id);
         $propertyType->name = $_POST['name'];
         $propertyType->save();
-        header("Location: /realestate/public/property_types");
+        header('Location: ' . \Core\View::url('property_types'));
         exit;
     }
 
@@ -63,7 +63,7 @@ class PropertyTypeController extends Controller
         $id = $_POST['id'];
         $propertyType = PropertyType::findOrFail($id);
         $propertyType->delete();
-        header("Location: /realestate/public/property_types");
+        header('Location: ' . \Core\View::url('property_types'));
         exit;
     }
 }

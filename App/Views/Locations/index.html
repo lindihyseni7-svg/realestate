@@ -31,9 +31,9 @@
                             <td>{{ location.type }}</td>
                             <td>{{ location.created_at }}</td>
                             <td>{{ location.updated_at }}</td>
-                            <td><a href="/realestate/public/locations-edit?id={{location.id}}">Edit</a></td>
+                            <td><a href="{{ url('locations-edit') }}?id={{location.id}}">Edit</a></td>
                             <td>
-                                <form method="post" action="/realestate/public/locations-delete" onsubmit="return confirmSubmit();">
+                                <form method="post" action="{{ url('locations-delete') }}" onsubmit="return confirmSubmit();">
                                     <input type="hidden" name="id" value="{{ location.id }}">
                                     <input type="submit" value="Delete">
                                 </form>

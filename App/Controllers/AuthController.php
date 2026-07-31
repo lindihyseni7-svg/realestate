@@ -20,7 +20,7 @@ class AuthController extends Controller
         $message = $session->message ?? '';
 
         if ($session->isSignedIn()) {
-            header('Location: /realestate/public/listings');
+            header('Location: ' . \Core\View::url('listings'));
             exit;
         }
 
@@ -36,12 +36,12 @@ class AuthController extends Controller
 
         if ($user && password_verify($password, $user->password)) {
             $session->login($user);
-            header('Location: /realestate/public/listings');
+            header('Location: ' . \Core\View::url('listings'));
             exit;
         }
 
         $session->message("Your email or password is incorrect.");
-        header('Location: /realestate/public/login');
+        header('Location: ' . \Core\View::url('login'));
         exit;
     }
 
@@ -49,12 +49,12 @@ class AuthController extends Controller
     {
         $session = Session::getInstance();
         if (!$session->isSignedIn()) {
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
 
         $session->logout();
-        header('Location: /realestate/public/login');
+        header('Location: ' . \Core\View::url('login'));
         exit;
     }
 }

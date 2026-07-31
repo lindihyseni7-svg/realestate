@@ -22,7 +22,7 @@ class ContactController extends Controller
         $contact->message = $_POST['message'];
         $contact->save();
 
-        header('Location: /realestate/public/#contact');
+        header('Location: ' . \Core\View::url('') . '#contact');
         exit;
     }
 }

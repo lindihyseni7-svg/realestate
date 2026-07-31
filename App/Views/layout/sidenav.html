@@ -3,7 +3,7 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <a class="nav-link mt-3" href="/realestate/public/listings">
+                    <a class="nav-link mt-3" href="{{ url('listings') }}">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-tachometer-alt"></i>
                         </div>
@@ -17,8 +17,8 @@
                     </a>
                     <div class="collapse" id="listingNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/listings-create">Add Listing</a>
-                            <a class="nav-link" href="/realestate/public/listings">View Listings</a>
+                            <a class="nav-link" href="{{ url('listings-create') }}">Add Listing</a>
+                            <a class="nav-link" href="{{ url('listings') }}">View Listings</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse"
@@ -29,8 +29,8 @@
                     </a>
                     <div class="collapse" id="agentNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/agents-create">Add Agent</a>
-                            <a class="nav-link" href="/realestate/public/agents">View Agents</a>
+                            <a class="nav-link" href="{{ url('agents-create') }}">Add Agent</a>
+                            <a class="nav-link" href="{{ url('agents') }}">View Agents</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#typeNav"
@@ -41,8 +41,8 @@
                     </a>
                     <div class="collapse" id="typeNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/property_types-create">Add Property Type</a>
-                            <a class="nav-link" href="/realestate/public/property_types">View Property Types</a>
+                            <a class="nav-link" href="{{ url('property_types-create') }}">Add Property Type</a>
+                            <a class="nav-link" href="{{ url('property_types') }}">View Property Types</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#locationNav"
@@ -53,8 +53,8 @@
                     </a>
                     <div class="collapse" id="locationNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/locations-create">Add Location</a>
-                            <a class="nav-link" href="/realestate/public/locations">View Locations</a>
+                            <a class="nav-link" href="{{ url('locations-create') }}">Add Location</a>
+                            <a class="nav-link" href="{{ url('locations') }}">View Locations</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#amenityNav"
@@ -65,8 +65,8 @@
                     </a>
                     <div class="collapse" id="amenityNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/amenities-create">Add Amenity</a>
-                            <a class="nav-link" href="/realestate/public/amenities">View Amenities</a>
+                            <a class="nav-link" href="{{ url('amenities-create') }}">Add Amenity</a>
+                            <a class="nav-link" href="{{ url('amenities') }}">View Amenities</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usersNav"
@@ -77,8 +77,8 @@
                     </a>
                     <div class="collapse" id="usersNav" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/realestate/public/users-create">Add User</a>
-                            <a class="nav-link" href="/realestate/public/users">View User</a>
+                            <a class="nav-link" href="{{ url('users-create') }}">Add User</a>
+                            <a class="nav-link" href="{{ url('users') }}">View User</a>
                         </nav>
                     </div>
 

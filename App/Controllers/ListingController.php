@@ -19,7 +19,7 @@ class ListingController extends Controller
         parent::__construct($route_params);
         $session = Session::getInstance();
         if (!$session->isSignedIn()){
-            header('Location: /realestate/public/login');
+            header('Location: ' . \Core\View::url('login'));
             exit;
         }
     }
@@ -81,7 +81,7 @@ class ListingController extends Controller
         $listing->agent_id = $_POST['agent_id'];
         $listing->type_id = $_POST['type_id'];
         $listing->save();
-        header("Location: /realestate/public/listings");
+        header('Location: ' . \Core\View::url('listings'));
         exit;
     }
 
@@ -110,7 +110,7 @@ class ListingController extends Controller
         $listing->agent_id = $_POST['agent_id'];
         $listing->type_id = $_POST['type_id'];
         $listing->save();
-        header("Location: /realestate/public/listings");
+        header('Location: ' . \Core\View::url('listings'));
         exit;
     }
 
@@ -119,7 +119,7 @@ class ListingController extends Controller
         $id = $_POST['id'];
         $listing = Listing::findOrFail($id);
         $listing->delete();
-        header("Location: /realestate/public/listings");
+        header('Location: ' . \Core\View::url('listings'));
         exit;
     }
 }
